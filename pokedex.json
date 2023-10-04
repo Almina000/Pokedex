@@ -1,5 +1,12 @@
 [
-    {"name": "Pikachu", "number": "123", "points": 10},
-    {"name": "Glumanda", "number": "234", "points": 15},
-    {"name": "Mauzi", "number": "567", "points": 20}
+    {"name": "Pikachu", "number": "101", "points": 10},
+    {"name": "Glumanda", "number": "102", "points": 10},
+    {"name": "Mauzi", "number": "103", "points": 10},
+    {"name": "Voltobal", "number": "104", "points": 10},
+    {"name": "Hypno", "number": "105", "points": 10},
+    {"name": "Schlurp", "number": "106", "points": 10},
+    {"name": "Lavados", "number": "107", "points": 10},
+    {"name": "Fukano", "number": "108", "points": 10},
+    {"name": "Nidorina", "number": "109", "points": 10}
+    
 ]
