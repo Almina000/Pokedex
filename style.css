@@ -18,10 +18,10 @@ body {
     opacity: 0.1;
     transform: rotate(-37deg);
     position: fixed;
-    right: -92px;
-    bottom: -108px;
-    width: 330px;
-    height: 330px;
+    right: -71px;
+    bottom: -83px;
+    width: 240px;
+    height: 240px;
     z-index: -1;
 }
 
@@ -81,24 +81,30 @@ button {
 #score {
     margin-top: 30px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 #score-value{
+    margin-left: 110px;
     font-family: system-ui;
-    position: relative;
     border-radius: 40px;
-    top: 12px;
-    left: 177px;
     font-size: 84px;
     font-weight: bold;
     background-color: #dedede;
     padding: 15px;
-    padding-top: 6px;
+    padding-top: 5px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 133px; 
+    margin-right: 110px;
+    margin-top: 15px;
 
 }
 
 #name {
-   margin-top: 40px; 
+   margin-top: 20px; 
 }
 
 #name, #number {
