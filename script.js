@@ -37,7 +37,7 @@ async function checkPokemon() {
                 pokemonArray.push({ name: name, number: number });
                 savePokemonArray();
             } else {
-                document.getElementById("result").textContent = `Incorrect! ${name} with number ${number} is not in the Pokédex.`;
+                document.getElementById("result").textContent = `${name} und/oder ${number} ist faslch.`;
             }
         } catch (error) {
             console.error("Error:", error);
