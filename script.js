@@ -16,15 +16,23 @@ async function checkPokemon() {
         const response = await fetch('pokedex.json');
         const data = await response.json();
 
-        const pokemon = data.find(entry => entry.name.toLowerCase() === name && entry.number.toLowerCase() === number);
+        const isPokemonRegistered = data.some(entry => entry.name.toLowerCase() === name && entry.number.toLowerCase() === number);
 
-        if (pokemon) {
-            score += pokemon.points;
-            updateScore();
-            saveScore();
-            document.getElementById("result").textContent = `Correct! ${name} is in the Pokédex. You earned ${pokemon.points} points.`;
+        if (isPokemonRegistered) {
+            showErrorPopup("Dieses Pokémon wurde bereits registriert.");
         } else {
-            document.getElementById("result").textContent = `Incorrect! ${name} with number ${number} is not in the Pokédex.`;
+        
+            const pokemon = data.find(entry => entry.name.toLowerCase() === name && entry.number.toLowerCase() === number);
+
+            if (pokemon) {
+                score += pokemon.points;
+                updateScore();
+                saveScore();
+                document.getElementById("result").textContent = `Correct! ${name} is in the Pokédex. You earned ${pokemon.points} points.`;
+            } else {
+                document.getElementById("result").textContent = `Incorrect! ${name} with number ${number} is not in the Pokédex.`;
+            }
+        
         }
 
     } catch (error) {
@@ -33,6 +41,18 @@ async function checkPokemon() {
 
     document.getElementById("name").value = "";
     document.getElementById("number").value= "";
+}
+
+function showErrorPopup(message) {
+    const errorPopup = document.getElementById("errorPopup");
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.textContent = message;
+    errorPopup.style.display = "flex";
+}
+
+function closeErrorPopup() {
+    const errorPopup = document.getElementById("errorPopup");
+    errorPopup.style.display = "none";
 }
 
 // Initialisiere den Punktestand beim Laden der Seite
