@@ -10,7 +10,7 @@ body {
    
 }
 .background-image {
-    background-image: url('/Media/PokeIcon.png');
+    background-image: url('PokeIcon.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
