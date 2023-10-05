@@ -3,6 +3,8 @@ let pokemonArray = localStorage.getItem("pokemonArray") ? JSON.parse(localStorag
 
 function updateScore() {
     document.getElementById("score-value").textContent = score;
+    errorPopup.style.display = "none";
+    registeredPopup.style.display = "none";
 }
 
 function saveScore() {
@@ -61,6 +63,27 @@ function showRegisteredPopup(message) {
     const registeredPopup = document.getElementById("registeredPopup");
     const errorMessage = document.getElementById("registeredMessage");
     errorMessage.innerHTML = message;
+
+      // Erstelle das Video-Element
+    const video = document.createElement("video");
+    video.id = "video";
+    video.width = 400;
+    video.height = 300;
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+  
+    const source = document.createElement("source");
+    source.src = "catch.mp4";
+    source.type = "video/mp4";
+  
+    // Videoquelle zum Video-Element hinzufügen
+    video.appendChild(source);
+  
+    // Video-Element zum Popup hinzufügen (falls es noch nicht vorhanden ist)
+    if (!document.getElementById("video")) {
+        registeredPopup.appendChild(video);
+    }
     registeredPopup.style.display = "flex";
 }
 
