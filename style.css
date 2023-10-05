@@ -10,7 +10,7 @@ body {
    
 }
 .background-image {
-    background-image: url('PokeIcon.png');
+    background-image: url('/Media/PokeIcon.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -131,6 +131,19 @@ button {
     z-index: 1;
     justify-content: center;
     align-items: center;
+}
+
+#registeredPopup {
+    /* Andere Stile für das Popup */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#video {
+    margin-bottom: 50px;
 }
 
 #errorMessage {

@@ -33,7 +33,7 @@ async function checkPokemon() {
                 score += pokemon.points;
                 updateScore();
                 saveScore();
-                showRegisteredPopup(`${name} wurde registriert. Du bekommst ${pokemon.points} Punkte.`);
+                showRegisteredPopup(`${name.charAt(0).toUpperCase() + name.slice(1)} wurde registriert.<br>Du bekommst ${pokemon.points} Punkte.`);
                 pokemonArray.push({ name: name, number: number });
                 savePokemonArray();
             } else {
@@ -58,10 +58,10 @@ function showErrorPopup(message) {
 }
 
 function showRegisteredPopup(message) {
-    const errorPopup = document.getElementById("registeredPopup");
+    const registeredPopup = document.getElementById("registeredPopup");
     const errorMessage = document.getElementById("registeredMessage");
-    errorMessage.textContent = message;
-    errorPopup.style.display = "flex";
+    errorMessage.innerHTML = message;
+    registeredPopup.style.display = "flex";
 }
 
 function closeErrorPopup() {
