@@ -62,6 +62,7 @@ function showErrorPopup(message) {
 function showRegisteredPopup(message) {
     const registeredPopup = document.getElementById("registeredPopup");
     const errorMessage = document.getElementById("registeredMessage");
+    
     errorMessage.innerHTML = message;
 
       // Erstelle das Video-Element
@@ -72,6 +73,7 @@ function showRegisteredPopup(message) {
     video.autoplay = true;
     video.loop = true;
     video.muted = true;
+    video.playsInline = true;
   
     const source = document.createElement("source");
     source.src = "catch.mp4";
