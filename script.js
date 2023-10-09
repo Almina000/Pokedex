@@ -69,7 +69,7 @@ function showRegisteredPopup(message, name, number) {
     images.forEach(image => image.remove());
     const videos = registeredPopup.querySelectorAll("video");
     videos.forEach(video => video.remove());
-    
+
     errorMessage.innerHTML = message;
     registeredPopup.style.display = "flex";
 
@@ -108,6 +108,7 @@ function showRegisteredPopup(message, name, number) {
         video.loop = true;
         video.muted = true;
         video.playsInline = true;
+        video.controls = false;
   
         const source = document.createElement("source");
         source.src = "catch.mp4";
