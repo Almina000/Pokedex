@@ -6,13 +6,18 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
     <title>Pokédex</title>
     
     
   </head>
   <body>
     
+    
+    
+    
+
     <div class="background-image"></div>
 
     <div class="container d-flex justify-content-center align-items-center">
@@ -20,6 +25,33 @@
       <h1  style="font-family: Arial, sans-serif; margin: 35px; font-size: 30px; font-weight: bold;" class="mb-0">Pokédex</h1>
 
     </div>
+
+    
+    <nav>
+      <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name"></span>
+      </div>
+      <div class="sidebar">
+          <div class="logo">
+              
+              <span class="logo-name" font-family: arial, sans-serif; margin: 35px; font-size: 30px;>Optionen</span>
+          </div>
+          <div class="sidebar-content">
+            <ul class="lists">
+              <li class="list">
+                <a href="#" class="nav-link" onclick="showResetConfirmationPopup()">
+                  <img id="resetIcon" src="bx-reset-icon.png" class="mr-3">
+                  <span class="link">Reset</span>
+                </a>
+              </li>
+            </ul>          
+          </div>
+      </div>
+  </nav>
+
+  <section class="overlay"></section>
+    
 
     <div id="score">Score:</div>
     <span id="score-value">0</span>
@@ -32,6 +64,15 @@
       
     </div>
 
+
+  
+    <div id="resetConfirmationPopup" class="popup">
+      <span class="close" onclick="closeResetConfirmationPopup()">&times;</span>
+      <p>Möchtest du wirklich den Punktestand zurücksetzen?</p>
+      <button onclick="resetScore()">Ja</button>
+    </div>
+    
+
     <div id="errorPopup" class="popup">
       <span class="close" onclick="closeErrorPopup()">&times;</span>
       <p id="errorMessage"></p>
@@ -42,9 +83,10 @@
       <p id="registeredMessage"></p>
     </div>
 
+    <section class="overlay"></section>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    
    
   </body>
 </html>
