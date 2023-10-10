@@ -40,6 +40,12 @@
           <div class="sidebar-content">
             <ul class="lists">
               <li class="list">
+                <a href="#" class="nav-link" onclick="showIndexPopup()">
+                  <img id="indexIcon" src="folder.png" class="mr-3">
+                  <span class="link">Index</span>
+                </a>
+              </li>
+              <li class="list">
                 <a href="#" class="nav-link" onclick="showResetConfirmationPopup()">
                   <img id="resetIcon" src="bx-reset-icon.png" class="mr-3">
                   <span class="link">Reset</span>
@@ -72,6 +78,23 @@
       <button onclick="resetScore()">Ja</button>
     </div>
     
+    <div id="indexPopup" class="popup" style="overflow-y:auto;">
+      <span class="close" onclick="closeIndexPopup()">&times;</span>
+      <p style="font-family: Arial, sans-serif; margin: 35px; font-size: 22px; font-weight: bold;">Registrierte Pokémon</p>
+      <table id="pokemonTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Nr.</th>
+                <th>Punkte</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    </div>
 
     <div id="errorPopup" class="popup">
       <span class="close" onclick="closeErrorPopup()">&times;</span>

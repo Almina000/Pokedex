@@ -1,6 +1,7 @@
 let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
 let pokemonArray = localStorage.getItem("pokemonArray") ? JSON.parse(localStorage.getItem("pokemonArray")) : [];
 closeResetConfirmationPopup()
+closeIndexPopup()
 
 function updateScore() {
     document.getElementById("score-value").textContent = score;
@@ -20,6 +21,8 @@ async function checkPokemon() {
     const name = document.getElementById("name").value.trim().toLowerCase();
     const number = document.getElementById("number").value.trim().toLowerCase();
 
+    document.getElementById("result").textContent = "";
+
     const isAlreadyRegistered = pokemonArray.some(entry => entry.name.toLowerCase() === name && entry.number.toLowerCase() === number);
 
     if (isAlreadyRegistered) {
@@ -37,7 +40,8 @@ async function checkPokemon() {
                 updateScore();
                 saveScore();
                 showRegisteredPopup(`${name.charAt(0).toUpperCase() + name.slice(1)} wurde registriert.<br>Du bekommst ${pokemon.points} Punkte.`, name, number);
-                pokemonArray.push({ name: name, number: number });
+                /*pokemonArray.push({ name: name, number: number });*/
+                pokemonArray.push({ name: name, number: number, points: pokemon.points });
                 savePokemonArray();
             } else {
                 document.getElementById("result").textContent = `${name.charAt(0).toUpperCase() + name.slice(1)} und/oder ${number} ist falsch.`;
@@ -165,7 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
         navBar.classList.remove("open");
         overlay.classList.remove("open");
     });
+
 });
+
 
 function showResetConfirmationPopup() {
     const navBar = document.querySelector("nav");
@@ -176,6 +182,21 @@ function showResetConfirmationPopup() {
 
     const resetConfirmationPopup = document.getElementById("resetConfirmationPopup");
     resetConfirmationPopup.style.display = "flex";
+ 
+}
+
+function showIndexPopup() {
+    const navBar = document.querySelector("nav");
+    const overlay = document.querySelector(".overlay");
+
+    navBar.classList.remove("open");
+    overlay.classList.remove("open");
+
+    const indexPopup = document.getElementById("indexPopup");
+    indexPopup.style.display = "flex";
+
+    // Rufe die Funktion auf, um die Pokémon-Liste zu generieren
+    fillPokemonTable();
  
 }
 
@@ -191,4 +212,26 @@ function resetScore() {
 function closeResetConfirmationPopup() {
     const resetConfirmationPopup = document.getElementById("resetConfirmationPopup");
     resetConfirmationPopup.style.display = "none";
+}
+
+function closeIndexPopup() {
+    const indexPopup = document.getElementById("indexPopup");
+    indexPopup.style.display = "none";
+}
+
+/* Index */
+function fillPokemonTable() {
+    const tableBody = document.querySelector('#pokemonTable tbody');
+    tableBody.innerHTML = ''; // Leere die Tabelle zuerst
+
+    for (let i = 0; i < pokemonArray.length; i++) {
+        const capitalizedName = pokemonArray[i].name.charAt(0).toUpperCase() + pokemonArray[i].name.slice(1);
+        const row = `<tr>
+                        <td>#${i + 1}</td>
+                        <td>${capitalizedName}</td>
+                        <td>${pokemonArray[i].number}</td>
+                        <td>${pokemonArray[i].points}</td>
+                    </tr>`;
+        tableBody.innerHTML += row;
+    }
 }
