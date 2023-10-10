@@ -393,6 +393,9 @@ button {
     text-align: center; /* Schrift im Popup zentrieren */
     padding: 20px;
     background-color: #fff;
+
+    overflow-y: scroll; /* Erlaube vertikales Scrollen */
+    overflow-x: hidden;
     
 }
 
