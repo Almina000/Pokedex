@@ -90,7 +90,7 @@ button {
 }
 
 #score-value{
-    margin-left: 110px;
+    margin-left: 100px;
     font-family: system-ui;
     border-radius: 40px;
     font-size: 84px;
@@ -101,7 +101,7 @@ button {
     justify-content: center;
     align-items: center;
     height: 133px; 
-    margin-right: 110px;
+    margin-right: 100px;
     margin-top: 15px;
 
 }
