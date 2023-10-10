@@ -6,6 +6,7 @@ let counter = localStorage.getItem("counter") ? parseInt(localStorage.getItem("c
 closeResetConfirmationPopup()
 closeIndexPopup()
 closeZonePopup()
+setColor()
 
 function updateScore() {
     document.getElementById("score-value").textContent = indexScore;
@@ -189,6 +190,7 @@ function closeRegisteredPopup() {
 
 window.onload = function() {
     updateScore();
+    
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -265,6 +267,30 @@ function resetScore() {
     closeResetConfirmationPopup();
 }
 
+function setColor(){
+    if (counter == 1 ){
+        document.getElementById("score-value").style.backgroundColor = "rgb(153, 236, 253)";
+    }
+    else if (counter == 2){
+        document.getElementById("score-value").style.backgroundColor = "rgb(250, 253, 153)";
+    }
+    else if (counter == 3){
+        document.getElementById("score-value").style.backgroundColor = "rgb(253, 153, 220)";
+    }
+    else if (counter == 4){
+        document.getElementById("score-value").style.backgroundColor = "rgb(213, 153, 253)";
+    }
+    else if (counter == 5){
+        document.getElementById("score-value").style.backgroundColor = "#dedede";
+    }
+    else if (counter == 6){
+        document.getElementById("score-value").style.backgroundColor = "rgb(253, 233, 153)";
+    }
+    else if (counter == 7){
+        document.getElementById("score-value").style.backgroundColor = "rgb(253, 153, 153)";
+    }
+
+}
 
 function changeScore() {
     
@@ -292,6 +318,7 @@ function changeScore() {
     }
 
     counter ++;
+    localStorage.setItem("counter", counter);
     indexScore = 0;
     updateScore();
     saveScore(); 
