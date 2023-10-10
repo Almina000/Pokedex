@@ -115,7 +115,7 @@ function showRegisteredPopup(message, name, number) {
         registeredPopup.appendChild(bildElement);
 
     } else if (name.toLowerCase() === 'xxx' && number.toLowerCase() === '999'){
-        errorMessage.innerHTML = "Herzlichen Glückwunsch!<br><br>Du hast die finale Herausforderung gewonnen<br>und bekommts 50 Punkte.";
+        errorMessage.innerHTML = "Herzlichen Glückwunsch!<br><br>Du hast die finale Herausforderung gewonnen<br>und bekommst 50 Punkte.";
         registeredPopup.style.display = "flex";
 
         const video = document.createElement("video");
