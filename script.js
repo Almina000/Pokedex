@@ -1,16 +1,23 @@
 let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
+let indexScore = localStorage.getItem("indexScore") ? parseInt(localStorage.getItem("indexScore")) : 0;
 let pokemonArray = localStorage.getItem("pokemonArray") ? JSON.parse(localStorage.getItem("pokemonArray")) : [];
+let counter = localStorage.getItem("counter") ? parseInt(localStorage.getItem("counter")) : 0;
+
 closeResetConfirmationPopup()
 closeIndexPopup()
+closeZonePopup()
 
 function updateScore() {
-    document.getElementById("score-value").textContent = score;
+    document.getElementById("score-value").textContent = indexScore;
+    document.getElementById("score-value-index").textContent = score;
     errorPopup.style.display = "none";
     registeredPopup.style.display = "none";
 }
 
 function saveScore() {
     localStorage.setItem("score", score);
+    localStorage.setItem("indexScore", indexScore);
+
 }
 
 function savePokemonArray() {
@@ -37,6 +44,7 @@ async function checkPokemon() {
             if (isPokemonRegistered) {
                 const pokemon = data.find(entry => entry.name.toLowerCase() === name && entry.number.toLowerCase() === number);
                 score += pokemon.points;
+                indexScore += pokemon.points;
                 updateScore();
                 saveScore();
                 showRegisteredPopup(`${name.charAt(0).toUpperCase() + name.slice(1)} wurde registriert.<br>Du bekommst ${pokemon.points} Punkte.`, name, number);
@@ -74,10 +82,11 @@ function showRegisteredPopup(message, name, number) {
     const videos = registeredPopup.querySelectorAll("video");
     videos.forEach(video => video.remove());
 
-    errorMessage.innerHTML = message;
-    registeredPopup.style.display = "flex";
 
     if (name.toLowerCase() === 'mew' && number.toLowerCase() === '72') {
+
+        errorMessage.innerHTML = message;
+        registeredPopup.style.display = "flex";
         // Wenn der Name 'mew' und die Nummer '72' sind, zeige das Mew-Bild an
         var bildElement = document.createElement("img");
 
@@ -91,7 +100,10 @@ function showRegisteredPopup(message, name, number) {
 
        
     } else if (name.toLowerCase() === 'lapras' && number.toLowerCase() === '578'){
-        // Wenn der Name 'mew' und die Nummer '72' sind, zeige das Mew-Bild an
+        
+        errorMessage.innerHTML = message;
+        registeredPopup.style.display = "flex";
+
         var bildElement = document.createElement("img");
 
         // Den Quellpfad des Bildes setzen
@@ -102,7 +114,36 @@ function showRegisteredPopup(message, name, number) {
         // Das Bild-Element zum Body des Dokuments hinzufügen
         registeredPopup.appendChild(bildElement);
 
+    } else if (name.toLowerCase() === 'xxx' && number.toLowerCase() === '999'){
+        errorMessage.innerHTML = "Herzlichen Glückwunsch!<br><br>Du hast die finale Herausforderung gewonnen<br>und bekommts 50 Punkte.";
+        registeredPopup.style.display = "flex";
+
+        const video = document.createElement("video");
+        video.id = "video";
+        video.width = 400;
+        video.height = 300;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.controls = false;
+
+        const source = document.createElement("source");
+        source.src = "victory.mp4";
+        source.type = "video/mp4";
+  
+        // Videoquelle zum Video-Element hinzufügen
+        video.appendChild(source);
+  
+        // Video-Element zum Popup hinzufügen (falls es noch nicht vorhanden ist)
+        if (!document.getElementById("video")) {
+        registeredPopup.appendChild(video);
+        }
+
     } else {
+
+        errorMessage.innerHTML = message;
+        registeredPopup.style.display = "flex";
         // Erstelle das Video-Element
         const video = document.createElement("video");
         video.id = "video";
@@ -185,6 +226,18 @@ function showResetConfirmationPopup() {
  
 }
 
+function showZonePopup() {
+    const navBar = document.querySelector("nav");
+    const overlay = document.querySelector(".overlay");
+
+    navBar.classList.remove("open");
+    overlay.classList.remove("open");
+
+    const zoneConfirmationPopup = document.getElementById("zonePopup");
+    zoneConfirmationPopup.style.display = "flex";
+ 
+}
+
 function showIndexPopup() {
     const navBar = document.querySelector("nav");
     const overlay = document.querySelector(".overlay");
@@ -201,12 +254,48 @@ function showIndexPopup() {
 }
 
 function resetScore() {
+    counter = 0;
+    document.getElementById("score-value").style.backgroundColor = "#abf7d7b2";
     score = 0;
+    indexScore = 0;
     pokemonArray = []; 
     updateScore();
     saveScore();
     savePokemonArray(); 
     closeResetConfirmationPopup();
+}
+
+
+function changeScore() {
+    
+
+    if (counter == 0 ){
+        document.getElementById("score-value").style.backgroundColor = "rgb(153, 236, 253)";
+    }
+    else if (counter == 1){
+        document.getElementById("score-value").style.backgroundColor = "rgb(250, 253, 153)";
+    }
+    else if (counter == 2){
+        document.getElementById("score-value").style.backgroundColor = "rgb(253, 153, 220)";
+    }
+    else if (counter == 3){
+        document.getElementById("score-value").style.backgroundColor = "rgb(213, 153, 253)";
+    }
+    else if (counter == 4){
+        document.getElementById("score-value").style.backgroundColor = "#dedede";
+    }
+    else if (counter == 5){
+        document.getElementById("score-value").style.backgroundColor = "rgb(253, 233, 153)";
+    }
+    else if (counter == 6){
+        document.getElementById("score-value").style.backgroundColor = "rgb(253, 153, 153)";
+    }
+
+    counter ++;
+    indexScore = 0;
+    updateScore();
+    saveScore(); 
+    closeZonePopup();
 }
 
 function closeResetConfirmationPopup() {
@@ -216,6 +305,11 @@ function closeResetConfirmationPopup() {
 
 function closeIndexPopup() {
     const indexPopup = document.getElementById("indexPopup");
+    indexPopup.style.display = "none";
+}
+
+function closeZonePopup() {
+    const indexPopup = document.getElementById("zonePopup");
     indexPopup.style.display = "none";
 }
 

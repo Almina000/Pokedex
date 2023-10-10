@@ -28,6 +28,7 @@ body {
 }
 
 
+
 @media (max-width: 768px) {
     body {
         font-size: 18px; /* Größere Schriftgröße für kleinere Bildschirme */
@@ -89,7 +90,24 @@ button {
     align-items: center;
 }
 
-#score-value{
+#score-value {
+    margin-left: 100px;
+    font-family: system-ui;
+    border-radius: 40px;
+    font-size: 84px;
+    font-weight: bold;
+    background-color: #abf7d7b2;
+    padding: 15px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 133px; 
+    margin-right: 100px;
+    margin-top: 15px;
+
+}
+
+#score-value-index{
     margin-left: 100px;
     font-family: system-ui;
     border-radius: 40px;
@@ -129,7 +147,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.99);
     z-index: 1;
     justify-content: center;
     align-items: center;
@@ -250,7 +268,7 @@ button {
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
-    padding: 30px 16px;
+    padding: 30px 0px;
   }
   .sidebar-content .list {
     list-style: none;
@@ -285,6 +303,15 @@ button {
     margin-left: -20px;
     margin-top: -4px;
 }
+
+#zoneIcon{
+    height: 28px;
+    width: 28px;
+    margin-right: 20px;
+    margin-left: -20px;
+    margin-top: -4px;
+}
+
   .nav-link .icon {
     margin-right: 14px;
     font-size: 20px;
@@ -333,7 +360,32 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 2;
 }
+
+#zonePopup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
 #indexPopup{
+
+    background-image: url('icon.png'); /* Hintergrundbild */
+    background-size: cover; /* Bildgröße anpassen */
+    background-position: center center; /* Bildposition zentrieren */
+    background-repeat: repeat;
+    background-size: 50px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -341,7 +393,19 @@ button {
     text-align: center; /* Schrift im Popup zentrieren */
     padding: 20px;
     background-color: #fff;
+    
 }
+
+#score-value-index{
+
+    margin-top: -18px;
+    margin-bottom: 20px;
+    padding-left: 100%;
+    padding-right: 100%;
+}
+
+
+
 
 #indexPopup p{
 
@@ -360,6 +424,23 @@ button {
 }
 
 #resetConfirmationPopup button {
+    background-color:lightgray;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#zonePopup p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#zonePopup button {
     background-color:lightgray;
     color: black;
     border: none;

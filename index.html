@@ -12,12 +12,9 @@
     
     
   </head>
-  <body>
-    
-    
-    
-    
 
+
+  <body>
     <div class="background-image"></div>
 
     <div class="container d-flex justify-content-center align-items-center">
@@ -39,6 +36,12 @@
           </div>
           <div class="sidebar-content">
             <ul class="lists">
+              <li class="list">
+                <a href="#" class="nav-link" onclick="showZonePopup()">
+                  <img id="zoneIcon" src="zone.jpg" class="mr-3">
+                  <span class="link">Zonenwechsel</span>
+                </a>
+              </li>
               <li class="list">
                 <a href="#" class="nav-link" onclick="showIndexPopup()">
                   <img id="indexIcon" src="folder.png" class="mr-3">
@@ -72,15 +75,22 @@
 
 
   
+    <div id="zonePopup" class="popup">
+      <span class="close" onclick="closeZonePopup()">&times;</span>
+      <p>Möchtest du die Zone wirklich wechseln?</p>
+      <button onclick="changeScore()">Ja</button>
+    </div>
+
     <div id="resetConfirmationPopup" class="popup">
       <span class="close" onclick="closeResetConfirmationPopup()">&times;</span>
-      <p>Möchtest du wirklich den Punktestand zurücksetzen?</p>
+      <p>Möchtest du  den Punktestand wirklich zurücksetzen?</p>
       <button onclick="resetScore()">Ja</button>
     </div>
     
-    <div id="indexPopup" class="popup" style="overflow-y:auto;">
+    <div id="indexPopup" class="popup" style="overflow-y:scroll;">
       <span class="close" onclick="closeIndexPopup()">&times;</span>
       <p style="font-family: Arial, sans-serif; margin: 35px; font-size: 22px; font-weight: bold;">Registrierte Pokémon</p>
+      <span id="score-value-index">0</span>
       <table id="pokemonTable">
         <thead>
             <tr>
