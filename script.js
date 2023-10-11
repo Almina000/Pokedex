@@ -257,6 +257,7 @@ function showIndexPopup() {
 
 function resetScore() {
     counter = 0;
+    localStorage.setItem("counter", counter);
     document.getElementById("score-value").style.backgroundColor = "#abf7d7b2";
     score = 0;
     indexScore = 0;
@@ -268,6 +269,7 @@ function resetScore() {
 }
 
 function setColor(){
+
     if (counter == 1 ){
         document.getElementById("score-value").style.backgroundColor = "rgb(153, 236, 253)";
     }
