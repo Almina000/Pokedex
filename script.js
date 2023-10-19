@@ -84,11 +84,11 @@ function showRegisteredPopup(message, name, number) {
     videos.forEach(video => video.remove());
 
 
-    if (name.toLowerCase() === 'mew' && number.toLowerCase() === '72') {
+    if (name.toLowerCase() === 'mew' && number.toLowerCase() === '683') {
 
         errorMessage.innerHTML = message;
         registeredPopup.style.display = "flex";
-        // Wenn der Name 'mew' und die Nummer '72' sind, zeige das Mew-Bild an
+        // Wenn der Name 'mew' und die Nummer '683' sind, zeige das Mew-Bild an
         var bildElement = document.createElement("img");
 
         // Den Quellpfad des Bildes setzen

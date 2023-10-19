@@ -1,6 +1,5 @@
 [
     {"name": "Lapras", "number": "578", "points": 10},
-    {"name": "Mew", "number": "72", "points": 50},
     {"name": "XXX", "number": "999", "points": 50},
     {"name": "Lapras", "number": "372", "points": 20},
     {"name": "Lapras", "number": "449", "points": 10},
@@ -119,7 +118,7 @@
     {"name": "Schillok", "number": "642", "points": 10},
     {"name": "Nidoran", "number": "174", "points": 10},
     {"name": "Nidoran", "number": "581", "points": 10},
-    {"name": "Mew", "number": "683", "points": 20},
+    {"name": "Mew", "number": "683", "points": 50},
     {"name": "Mew", "number": "529", "points": 20},
     {"name": "Sichlor", "number": "654", "points": 10},
     {"name": "Sichlor", "number": "781", "points": 10},
